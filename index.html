@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+      integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>~ Portfolio App ~</title>
+  </head>
+  <body data-theme="dark">
+    <div class="page page1">
+      <div class="h1-container">
+        <h1 style="--i: 1" class="page1-h1">Justin Green</h1>
+      </div>
+      <div class="h4-container">
+        <h4 style="--i: 2" class="page1-h4">
+          - <span class="underline">Full stack</span> JavaScript web-developer -
+        </h4>
+      </div>
+    </div>
+    <div class="page page2">
+      <div class="page-col">
+        <div class="flex-center-container">
+          <div style="--i: 1" class="front-end-row flex-row">
+            <h1 style="--height: 0" class="frameworkh1 react-h1">
+              <span> <i class="fab fa-react"></i> </span>React,
+            </h1>
+            <h1 style="--height: 1" class="frameworkh1 vue-h1">
+              <span> <i class="fab fa-vuejs"></i> </span>Vue,
+            </h1>
+            <h1 style="--height: 2" class="frameworkh1 angular-h1">
+              <span> <i class="fab fa-angular"></i> </span>Angular
+            </h1>
+          </div>
+          <div style="--i: 2" class="center-row flex-row">
+            <h1 class="h1-node nodegreen">
+              <i class="fab fa-node"></i>
+              Node.JS
+            </h1>
+          </div>
+          <div style="--i: 3" class="bottom-row flex-row">
+            <div class="database-parent">
+              <div data-lang="mysql" class="db-row"></div>
+              <div data-lang="postgres" class="db-row"></div>
+              <div data-lang="mongo" class="db-row"></div>
+              <div class="db-row"></div>
+              <div class="db-logo">
+                <i class="fas fa-postgresql"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="page-col img-col">
+        <img class="col-img" src="./morningmilks.jpg" alt="" />
+      </div>
+    </div>
+
+    <footer>
+      <p>Footer&copy;</p>
+    </footer>
+
+    <script>
+      var h1one = document.querySelector(".page1-h1");
+      var h4one = document.querySelector(".page1-h4");
+      // var colRows = document.querySelectorAll(".flex-row");
+      // var colImg = document.querySelector(".col-img");
+      let offset = 0;
+      let rate = 2;
+      let ref = 0;
+      let threshold = window.innerWidth > 650 ? 400 : 600;
+      if (threshold == 600) console.log("MOBILE");
+      console.log(window.innerWidth);
+
+      h4Opacity = window.getComputedStyle(h4one).getPropertyValue("opacity");
+      console.log(h4Opacity);
+
+      onscroll = (e) => {
+        if (threshold == 600) return setMobile();
+        let curr_offset = window.pageYOffset;
+        console.log(curr_offset);
+
+        // var posX = window.pageYOffset * rate;
+        var posX = window.pageYOffset * 1.15;
+
+        h1one.style.transform = `translateX(${posX}px)`;
+        h4Opacity = parseFloat(
+          window.getComputedStyle(h4one).getPropertyValue("opacity")
+        );
+        console.log("Opacity", h4Opacity);
+        h4Opacity = h4Opacity === 1 ? 1 : h4Opacity;
+        if (curr_offset > ref) {
+          h4Opacity -= 0.07;
+        } else {
+          h4Opacity += 0.2;
+        }
+        h4one.style.opacity = `${h4Opacity * 100}%`;
+
+        ref = curr_offset;
+
+        handlePageTwo(curr_offset);
+      };
+
+      var colRows = document.querySelectorAll(".flex-row");
+      var colImg = document.querySelector(".img-col");
+
+      function handlePageTwo(offset) {
+        if (offset < threshold) {
+          colRows.forEach((r) => {
+            r.classList.remove("slide-rows");
+            r.style.transform = `translateX(-100vw)`;
+            // colImg.style.filter = `blur(5px)hue-rotate(90deg)`;
+          });
+          colImg.style.opacity = 0;
+          // colImg.style.transform = "translateY(-50vh)";
+        } else {
+          colRows.forEach((r) => {
+            r.classList.add("slide-rows");
+            r.style.transform = `translateX(0vw)`;
+
+            // colImg.style.filter = `blur(0px)hue-rotate(90deg)`;
+          });
+          colImg.style.opacity = 1;
+          // colImg.style.transform = "translateY(0vh)";
+        }
+      }
+
+      function setMobile() {
+        if (colRows[0].classList.contains("slide-rows")) {
+          console.log("cancel");
+          return;
+        }
+        colRows.forEach((r) => {
+          r.classList.add("slide-rows");
+          r.style.transform = `translateX(0vw)`;
+
+          // colImg.style.filter = `blur(0px)hue-rotate(90deg)`;
+        });
+        colImg.style.opacity = 1;
+      }
+
+      onclick = () => {
+        document.body.dataset.theme =
+          document.body.dataset.theme === "light" ? "dark" : "light";
+      };
+    </script>
+  </body>
+</html>
