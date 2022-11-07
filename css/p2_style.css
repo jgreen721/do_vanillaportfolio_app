@@ -1,112 +1,8 @@
-@import url("https://fonts.googleapis.com/css2?family=Island+Moments&family=Raleway:wght@500&display=swap");
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-:root {
-  --fancyfont: "Island Moments", cursive;
-  --formalfont: "Raleway", sans-serif;
-  --reactblue: rgb(0, 140, 255);
-  --vuegreen: limegreen;
-  --nodegreen: rgb(7, 90, 7);
-  --angulargray: rgb(182, 169, 169);
-}
-
-body[data-theme="dark"] {
-  --mainbg: black;
-  --color: white;
-}
-
-body[data-theme="light"] {
-  --mainbg: white;
-  --color: black;
-}
-
-body {
-  background: var(--mainbg);
-  color: var(--color);
-  transition: 0.5s ease;
-}
-
-.page {
-  height: 100vh;
-  width: 100vw;
-  overflow: hidden;
-  /* display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column; */
-  /* border: 2px solid red; */
-}
-
-.page1 {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  transform-style: preserve-3d;
-}
-
-.h1-container,
-.h4-container {
-  /* border: 2px solid black; */
-  height: 4rem;
-}
-
-.h4-container {
-  height: 2.5rem;
-}
-
-.page1-h1,
-.page1-h4 {
-  animation: showLetters 2s forwards;
-  animation-delay: calc(var(--i) * 0.5s);
-  height: 0rem;
-  overflow: hidden;
-  transition: 0.1s ease;
-}
-
-.page1-h1 {
-  /* transform: translateX(-10rem); */
-  font-family: var(--fancyfont);
-  font-size: 4rem;
-}
-
-.page1-h4 {
-  /* transform: translateX(5rem); */
-  font-family: var(--formalfont);
-  font-size: 2rem;
-  opacity: 80%;
-}
-
-.underline {
-  position: relative;
-  animation: changeform 0.3s 2.1s forwards;
-}
-
-.underline::after {
-  position: absolute;
-  content: "";
-  height: 3px;
-  width: 0px;
-  background: var(--color);
-  transition: 1s ease;
-  left: 0;
-  bottom: 0;
-  /* width: 40px; */
-  animation: underlinetext 0.3s 2s forwards;
-}
-
-/*Page2 */
-
 .page2 {
   display: flex;
   font-family: var(--formalfont);
   /* background: var(--mainbg);
-  color: var(--color); */
+    color: var(--color); */
   overflow: hidden;
 }
 
@@ -394,46 +290,9 @@ footer {
   font-size: 1.5rem;
 }
 
-@keyframes showLetters {
-  100% {
-    height: 5rem;
-  }
-}
-
-@keyframes underlinetext {
-  100% {
-    width: 100%;
-  }
-}
-
-@keyframes changeform {
-  100% {
-    font-style: italic;
-  }
-}
-
 @keyframes sliderows {
   100% {
     transform: translateX(0);
-  }
-}
-
-@media screen and (max-width: 650px) {
-  .h1-container,
-  .h4-container {
-    /* border: 2px solid black; */
-    height: 2rem;
-  }
-
-  .h4-container {
-    height: 1.5rem;
-  }
-  .page1-h1 {
-    font-size: 2rem;
-  }
-
-  .page1-h4 {
-    font-size: 1rem;
   }
 }
 

@@ -1,0 +1,29 @@
+.page3 {
+  font-family: var(--formalfont);
+  padding: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+}
+
+.page3-h3 {
+  position: relative;
+  transform: translateX(-100vw);
+  transition: 0.5s ease;
+}
+
+.showp3text {
+  animation: slideover 2s forwards;
+  animation-delay: calc(var(--i) * 0.5s);
+  transition: 5s ease;
+}
+
+@keyframes slideover {
+  0% {
+    transform: translateX(-100vw);
+  }
+  100% {
+    transform: translateX(0vw);
+  }
+}
