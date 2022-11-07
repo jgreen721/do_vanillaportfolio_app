@@ -28,29 +28,31 @@
     <div class="page page2">
       <div class="page-col">
         <div class="flex-center-container">
-          <div style="--i: 1" class="front-end-row flex-row">
+          <div style="--i: 1" class="front-end-row">
             <h1 style="--height: 0" class="frameworkh1 react-h1">
-              <span> <i class="fab fa-react"></i> </span>React,
+              <span> <i class="fab fa-react"></i> </span>React
             </h1>
             <h1 style="--height: 1" class="frameworkh1 vue-h1">
-              <span> <i class="fab fa-vuejs"></i> </span>Vue,
+              <span> <i class="fab fa-vuejs"></i> </span>Vue
             </h1>
             <h1 style="--height: 2" class="frameworkh1 angular-h1">
               <span> <i class="fab fa-angular"></i> </span>Angular
             </h1>
           </div>
+
           <div style="--i: 2" class="center-row flex-row">
             <h1 class="h1-node nodegreen">
               <i class="fab fa-node"></i>
               Node.JS
             </h1>
           </div>
+
           <div style="--i: 3" class="bottom-row flex-row">
             <div class="database-parent">
-              <div data-lang="mysql" class="db-row"></div>
-              <div data-lang="postgres" class="db-row"></div>
-              <div data-lang="mongo" class="db-row"></div>
-              <div class="db-row"></div>
+              <div style="--i: 1" data-lang="mysql" class="db-row"></div>
+              <div style="--i: 2" data-lang="postgres" class="db-row"></div>
+              <div style="--i: 3" data-lang="mongo" class="db-row"></div>
+              <div style="--i: 4" data-lang="firebase" class="db-row"></div>
               <div class="db-logo">
                 <i class="fas fa-postgresql"></i>
               </div>
@@ -147,6 +149,7 @@
       }
 
       onclick = () => {
+        console.log("change theme");
         document.body.dataset.theme =
           document.body.dataset.theme === "light" ? "dark" : "light";
       };
